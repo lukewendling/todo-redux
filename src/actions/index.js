@@ -34,7 +34,7 @@ export const VisibilityFilters = {
 export function fetchRandom(category) {
   return dispatch => {
     dispatch(requestRandom(category));
-    return fetch(`http://quotes.rest/quote/random.json`, {
+    return fetch(`https://quotes.rest/qod.json?category=${category} `, {
       method: 'GET'
     })
       .then(res => res.json())
