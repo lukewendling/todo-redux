@@ -2,9 +2,7 @@
 
 ## Deploy
 
-1. git checkout gh-pages
-1. git commit
-1. npm run deploy
+`npm run deploy`
 
 This project template was built with [Create React App](https://github.com/facebookincubator/create-react-app), which provides a simple way to start React projects with no build configuration needed.
 
