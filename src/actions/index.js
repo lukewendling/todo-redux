@@ -31,7 +31,7 @@ export const VisibilityFilters = {
   SHOW_ACTIVE: 'SHOW_ACTIVE'
 };
 
-export function fetchRandom(category) {
+export function fetchRandom(category = '') {
   return dispatch => {
     dispatch(requestRandom(category));
     return fetch(`https://quotes.rest/qod.json?category=${category} `, {
