@@ -3,6 +3,7 @@ import Footer from './Footer';
 import AddTodo from '../containers/AddTodo';
 import VisibleTodoList from '../containers/VisibleTodoList';
 import GetRandomQuote from '../containers/GetRandomQuote';
+import GetWeather from '../containers/GetWeather';
 
 const App = () => (
   <div>
@@ -11,6 +12,9 @@ const App = () => (
     <Footer />
     <br />
     <GetRandomQuote />
+    <br />
+    <br />
+    <GetWeather />
   </div>
 );
 

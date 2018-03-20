@@ -25,6 +25,16 @@ export const receiveRandomQuote = json => ({
   json
 });
 
+export const requestWeather = searchTerm => ({
+  type: 'REQUEST_WEATHER',
+  searchTerm
+});
+
+export const receiveWeather = json => ({
+  type: 'RECEIVE_WEATHER',
+  json
+});
+
 export const VisibilityFilters = {
   SHOW_ALL: 'SHOW_ALL',
   SHOW_COMPLETED: 'SHOW_COMPLETED',
@@ -42,6 +52,35 @@ export function fetchRandomQuote(category = '') {
         const { author, quote } = json.contents.quotes[0];
         dispatch(receiveRandomQuote(json));
         dispatch(addTodo(`${quote} -${author}`));
+      });
+  };
+}
+
+function kToF(k) {
+  return parseInt(k * (9 / 5) - 459.67, 10);
+}
+
+export function fetchWeather(searchTerm = '') {
+  return dispatch => {
+    dispatch(requestWeather(searchTerm));
+    return fetch(
+      `https://api.openweathermap.org/data/2.5/weather?APPID=${
+        process.env.REACT_APP_OWM_API_KEY
+      }&q=${searchTerm},us`,
+      {
+        method: 'GET'
+      }
+    )
+      .then(res => res.json())
+      .then(json => {
+        console.log(json);
+        const { weather, main } = json;
+        dispatch(receiveWeather(json));
+        dispatch(
+          addTodo(
+            `${searchTerm} : ${weather[0].description} : ${kToF(main.temp)} °F`
+          )
+        );
       });
   };
 }
