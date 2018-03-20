@@ -2,7 +2,7 @@ import React from 'react';
 import Footer from './Footer';
 import AddTodo from '../containers/AddTodo';
 import VisibleTodoList from '../containers/VisibleTodoList';
-import GetRandom from '../containers/GetRandom';
+import GetRandomQuote from '../containers/GetRandomQuote';
 
 const App = () => (
   <div>
@@ -10,7 +10,7 @@ const App = () => (
     <VisibleTodoList />
     <Footer />
     <br />
-    <GetRandom />
+    <GetRandomQuote />
   </div>
 );
 

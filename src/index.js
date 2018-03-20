@@ -4,7 +4,6 @@ import thunkMiddleware from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import App from './components/App';
-import { fetchRandom } from './actions';
 import rootReducer from './reducers';
 
 const store = createStore(
@@ -20,5 +19,3 @@ render(
   </Provider>,
   document.getElementById('root')
 );
-
-// store.dispatch(fetchRandom()).then(() => console.table(store.getState()));

@@ -15,12 +15,12 @@ export const toggleTodo = id => ({
   id
 });
 
-export const requestRandom = category => ({
+export const requestRandomQuote = category => ({
   type: 'REQUEST_RANDOM',
   category
 });
 
-export const receiveRandom = json => ({
+export const receiveRandomQuote = json => ({
   type: 'RECEIVE_RANDOM',
   json
 });
@@ -31,16 +31,16 @@ export const VisibilityFilters = {
   SHOW_ACTIVE: 'SHOW_ACTIVE'
 };
 
-export function fetchRandom(category = '') {
+export function fetchRandomQuote(category = '') {
   return dispatch => {
-    dispatch(requestRandom(category));
+    dispatch(requestRandomQuote(category));
     return fetch(`https://quotes.rest/qod.json?category=${category} `, {
       method: 'GET'
     })
       .then(res => res.json())
       .then(json => {
         const { author, quote } = json.contents.quotes[0];
-        dispatch(receiveRandom(json));
+        dispatch(receiveRandomQuote(json));
         dispatch(addTodo(`${quote} -${author}`));
       });
   };
