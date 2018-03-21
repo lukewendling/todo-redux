@@ -17,22 +17,26 @@ export const toggleTodo = id => ({
 
 export const requestRandomQuote = category => ({
   type: 'REQUEST_RANDOM',
-  category
+  category,
+  loading: true
 });
 
 export const receiveRandomQuote = json => ({
   type: 'RECEIVE_RANDOM',
-  json
+  json,
+  loading: false
 });
 
 export const requestWeather = searchTerm => ({
   type: 'REQUEST_WEATHER',
-  searchTerm
+  searchTerm,
+  loading: true
 });
 
 export const receiveWeather = json => ({
   type: 'RECEIVE_WEATHER',
-  json
+  json,
+  loading: false
 });
 
 export const VisibilityFilters = {

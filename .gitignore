@@ -13,3 +13,6 @@ npm-debug.log
 
 # environment
 .env
+
+# override my global ignore
+!todos*
